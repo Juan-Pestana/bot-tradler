@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 
 //OJO darkmode hardcoded for now
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 })
