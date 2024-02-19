@@ -1,4 +1,4 @@
-import { env } from './config'
+//import { env } from './config'
 import { OpenAIEmbeddings } from '@langchain/openai'
 import { PineconeStore } from '@langchain/pinecone'
 import { Pinecone } from '@pinecone-database/pinecone'
@@ -11,7 +11,7 @@ export async function embedAndStoreDocs(
 ) {
   try {
     const embeddings = new OpenAIEmbeddings()
-    const index = client.index(env.PINECONE_INDEX_NAME)
+    const index = client.index(process.env.PINECONE_INDEX_NAME as string)
 
     await PineconeStore.fromDocuments(docs, embeddings, {
       pineconeIndex: index,
@@ -26,7 +26,7 @@ export async function embedAndStoreDocs(
 export async function getVectorStore(client: Pinecone) {
   try {
     const embeddings = new OpenAIEmbeddings()
-    const index = client.index(env.PINECONE_INDEX_NAME)
+    const index = client.index(process.env.PINECONE_INDEX_NAME as string)
 
     const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
       pineconeIndex: index,

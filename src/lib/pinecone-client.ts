@@ -1,11 +1,11 @@
 import { Pinecone } from '@pinecone-database/pinecone'
-import { env } from './config'
+//import { env } from './config'
 
 let pineconeClientInstance: Pinecone | null
 
 async function initPineconeClient() {
   const pineconeClient = new Pinecone({
-    apiKey: env.PINECONE_API_KEY,
+    apiKey: process.env.PINECONE_API_KEY as string,
   })
   return pineconeClient
 }

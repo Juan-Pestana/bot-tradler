@@ -22,6 +22,11 @@ export async function POST(req: NextRequest) {
     })
   }
 
+  console.log(
+    '-------------------------------->>>>>',
+    formattedPreviousMessages
+  )
+
   try {
     const streamingTextResponse = callChain({
       question,

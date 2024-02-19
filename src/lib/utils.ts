@@ -47,7 +47,7 @@ export const initialMessages: Message[] = [
     role: 'assistant',
     id: '0',
     content:
-      'Hi, my name is IraGPT-Turbo. Im Tradlers AI assistant and my job is to provide usefull information to help you on the onboarding to the Tradler Platform. \n Tradler Platform is an employee recognition tool to drive individual performance by leveraging the clients existing data and transforming it in to meaningfull celebrations.',
+      'Hi, my name is IRAbot. Im Tradlers AI assistant and my job is to provide usefull information to help you on the onboarding to the Tradler Platform. \n Tradler Platform is an employee recognition tool to drive individual performance by leveraging the clients existing data and transforming it in to meaningfull celebrations.',
   },
 ]
 

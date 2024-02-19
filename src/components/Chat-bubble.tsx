@@ -52,20 +52,35 @@ export function ChatLine({
   const formattedMessage = convertNewLines(content)
 
   return (
-    <div>
-      <Card className="mb-2">
+    <div className="my-4">
+      <Card
+        className={`mb-2 w-max max-w-[75%]  ${
+          role !== 'assistant' && 'ml-auto'
+        }`}
+      >
         <CardHeader>
           <CardTitle
-            className={
+            className={`text-xl ${
               role != 'assistant'
-                ? 'text-amber-500 dark:text-amber-200'
+                ? 'text-amber-500 dark:text-amber-200 ml-auto'
                 : 'text-blue-500 dark:text-blue-200'
-            }
+            }`}
           >
-            {role == 'assistant' ? 'AI' : 'You'}
+            {role == 'assistant' ? (
+              <div className="flex items-center gap-4">
+                <img
+                  className="w-14 h-14 rounded-full"
+                  src="https://media.licdn.com/dms/image/C4D03AQFCoZ-hb_OVnA/profile-displayphoto-shrink_800_800/0/1628612939050?e=1714003200&v=beta&t=7aPTH4X5ia5EWkAjHmAX1zWTp0g2y0PNrrLXGIgZTDM"
+                  alt="Rounded avatar"
+                />{' '}
+                IraBot
+              </div>
+            ) : (
+              'You'
+            )}
           </CardTitle>
         </CardHeader>
-        <CardContent className="text-sm">
+        <CardContent className="text-lg">
           <Balancer>{formattedMessage}</Balancer>
         </CardContent>
         <CardFooter>
