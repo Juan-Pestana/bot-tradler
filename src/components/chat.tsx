@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { scrollToBottom } from '@/lib/utils'
 import { initialMessages } from '@/lib/utils'
 import { ChatLine } from './Chat-bubble'
@@ -8,6 +8,7 @@ import { Input } from './ui/input'
 import { Message, useChat } from 'ai/react'
 
 export function Chat() {
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const { messages, input, handleInputChange, handleSubmit, isLoading } =
     useChat({
       initialMessages,
@@ -17,7 +18,7 @@ export function Chat() {
   }, [messages])
   return (
     <div className="rounded-2xl border h-[75vh] flex flex-col justify-between">
-      <div className="p-6 overflow-auto">
+      <div className="p-6 overflow-auto" ref={containerRef}>
         {messages.map((message, index) => (
           <ChatLine
             key={message.id}
