@@ -55,7 +55,7 @@ export function ChatLine({
     <div className="my-4">
       <Card
         className={`mb-2 w-max max-w-[75%]  ${
-          role !== 'assistant' && 'ml-auto'
+          role !== 'assistant' && 'ml-auto '
         }`}
       >
         <CardHeader>
