@@ -1,5 +1,6 @@
 'use client'
-
+import { useEffect } from 'react'
+import { scrollToBottom } from '@/lib/utils'
 import { initialMessages } from '@/lib/utils'
 import { ChatLine } from './Chat-bubble'
 import { Button } from './ui/button'
@@ -11,7 +12,9 @@ export function Chat() {
     useChat({
       initialMessages,
     })
-  console.log(messages)
+  useEffect(() => {
+    setTimeout(() => scrollToBottom(containerRef), 100)
+  }, [messages])
   return (
     <div className="rounded-2xl border h-[75vh] flex flex-col justify-between">
       <div className="p-6 overflow-auto">
